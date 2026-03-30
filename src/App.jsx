@@ -17,44 +17,85 @@ import {
   Send,
 } from "lucide-react";
 
+const trustItems = [
+  "Performance Ads",
+  "Admissions Growth",
+  "Lead Generation",
+  "Conversion Funnels",
+  "Growth Reporting",
+  "Creative Systems",
+];
+
 const services = [
   {
     icon: Megaphone,
     title: "Lead Generation",
-    desc: "Qualified student and admission leads through sharper targeting, stronger messaging, and cleaner inquiry capture.",
+    desc: "We structure campaigns to attract stronger-fit prospects instead of low-quality volume.",
+    includes: ["Audience targeting", "Inquiry strategy", "Lead quality improvement"],
   },
   {
     icon: BarChart3,
     title: "Performance Ads",
-    desc: "Meta and Google campaigns designed around reach, inquiry quality, and scalable return on ad spend.",
+    desc: "Meta and Google campaigns built for reach, inquiry quality, and scalable performance.",
+    includes: ["Campaign setup", "Budget structure", "Weekly optimization"],
   },
   {
     icon: GraduationCap,
     title: "Admission Funnels",
-    desc: "Landing journeys built to convert attention into inquiries, counseling calls, and stronger admission growth.",
+    desc: "Landing journeys designed to convert attention into inquiries, calls, and admissions.",
+    includes: ["Landing flow planning", "Conversion structure", "Funnel refinement"],
   },
   {
     icon: Users,
     title: "Creative Strategy",
-    desc: "Clear hooks, visuals, and positioning that support serious campaign performance instead of random content.",
+    desc: "Clear hooks, messaging, and visual direction designed for serious campaign performance.",
+    includes: ["Offer positioning", "Creative direction", "Message testing"],
   },
+];
+
+const caseStudies = [
+  {
+    title: "Institute Admissions Campaign",
+    challenge: "Lead quality was inconsistent and the campaign structure lacked clarity.",
+    solution: "We rebuilt targeting, simplified the campaign setup, and improved the inquiry path.",
+    result: "Stronger lead quality and a cleaner path from click to inquiry.",
+  },
+  {
+    title: "Landing Funnel Optimization",
+    challenge: "Traffic was coming in, but conversion flow was weak and user intent was leaking.",
+    solution: "We restructured the landing experience, improved messaging hierarchy, and tightened CTA flow.",
+    result: "A more focused journey built around admissions intent.",
+  },
+  {
+    title: "Creative System Refresh",
+    challenge: "Campaign creative lacked clarity and did not match audience intent.",
+    solution: "We refined creative direction, improved messaging hooks, and aligned visuals with performance goals.",
+    result: "More consistent communication and better campaign alignment.",
+  },
+];
+
+const whyPoints = [
+  "Strategy before execution",
+  "Campaigns built for lead quality",
+  "Funnels designed for conversion clarity",
+  "Creative aligned with performance goals",
 ];
 
 const processItems = [
   {
     icon: Rocket,
     title: "Discover",
-    desc: "We understand your institute, audience, admissions cycle, and actual growth targets before launch.",
+    desc: "We understand your institute, audience, admissions cycle, and current growth bottlenecks before launch.",
   },
   {
     icon: BarChart3,
     title: "Build",
-    desc: "We shape the campaigns, landing flow, tracking, and message direction around the outcome you need.",
+    desc: "We shape campaign structure, funnel direction, creative system, and tracking around the outcome you need.",
   },
   {
     icon: CheckCircle2,
     title: "Scale",
-    desc: "We optimize on numbers, improve lead quality, and push the system forward with a clear operating rhythm.",
+    desc: "We improve performance with real numbers, better quality control, and continuous optimization.",
   },
 ];
 
@@ -300,6 +341,7 @@ function SiteShell({ children }) {
 
           <nav className="top-nav">
             <a href={sectionLink("services")}>Services</a>
+            <a href={sectionLink("case-studies")}>Case Studies</a>
             <a href={sectionLink("process")}>Process</a>
             <a href={sectionLink("team")}>Team</a>
             <a href={sectionLink("contact")}>Contact</a>
@@ -337,6 +379,7 @@ function SiteShell({ children }) {
 
         <div className="mobile-drawer-links">
           <a href={sectionLink("services")} onClick={() => setMenuOpen(false)}>Services</a>
+          <a href={sectionLink("case-studies")} onClick={() => setMenuOpen(false)}>Case Studies</a>
           <a href={sectionLink("process")} onClick={() => setMenuOpen(false)}>Process</a>
           <a href={sectionLink("team")} onClick={() => setMenuOpen(false)}>Team</a>
           <a href={sectionLink("contact")} onClick={() => setMenuOpen(false)}>Contact</a>
@@ -369,7 +412,7 @@ function SiteShell({ children }) {
             <div className="footer-links">
               <a href="mailto:contact@risekatalyst.com" className="footer-mail">
                 <Mail size={15} />
-                contact@risekatalyst.com
+                <span className="footer-mail-text">contact@risekatalyst.com</span>
               </a>
             </div>
           </div>
@@ -379,7 +422,7 @@ function SiteShell({ children }) {
             <div className="footer-links">
               <a href="mailto:partnerships@risekatalyst.com" className="footer-mail">
                 <Mail size={15} />
-                partnerships@risekatalyst.com
+                <span className="footer-mail-text">partnerships@risekatalyst.com</span>
               </a>
             </div>
 
@@ -399,7 +442,13 @@ function SiteShell({ children }) {
 
 function HomePage() {
   const scope = useRef(null);
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    institute: "",
+    service: "",
+    message: "",
+  });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState("");
 
@@ -411,10 +460,21 @@ function HomePage() {
     setDone("");
 
     try {
+      const payload = {
+        name: form.name,
+        email: form.email,
+        message: [
+          `Institute / Organization: ${form.institute || "-"}`,
+          `Service needed: ${form.service || "-"}`,
+          "",
+          form.message,
+        ].join("\n"),
+      };
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       const text = await res.text();
@@ -431,7 +491,13 @@ function HomePage() {
       }
 
       setDone(data.message || "Message sent successfully.");
-      setForm({ name: "", email: "", message: "" });
+      setForm({
+        name: "",
+        email: "",
+        institute: "",
+        service: "",
+        message: "",
+      });
     } catch (err) {
       setDone(err.message || "Something went wrong.");
     } finally {
@@ -445,17 +511,17 @@ function HomePage() {
         <section className="hero-section">
           <div className="container-shell hero-grid">
             <div className="hero-copy-col">
-              <div className="hero-kicker intro intro-1">Growth systems for institutes</div>
+              <div className="hero-kicker intro intro-1">Performance growth for institutes</div>
 
               <h1 className="hero-title">
-                <span className="line-wrap"><span className="hero-line intro intro-2">Build demand.</span></span>
-                <span className="line-wrap"><span className="hero-line intro intro-3">Capture intent.</span></span>
-                <span className="line-wrap"><span className="hero-line accent-text intro intro-4">Scale admissions.</span></span>
+                <span className="line-wrap"><span className="hero-line intro intro-2">We build campaigns,</span></span>
+                <span className="line-wrap"><span className="hero-line intro intro-3">funnels, and systems</span></span>
+                <span className="line-wrap"><span className="hero-line accent-text intro intro-4">that drive admissions.</span></span>
               </h1>
 
               <p className="hero-copy intro intro-5">
-                Katalyst Rise helps institutes generate stronger inquiries, run sharper performance campaigns,
-                and build a cleaner admissions-focused growth engine.
+                Katalyst Rise helps institutes generate stronger inquiries, improve conversion flow,
+                and scale performance with clear strategy, sharper creative, and measurable execution.
               </p>
 
               <div className="hero-actions intro intro-6">
@@ -463,12 +529,12 @@ function HomePage() {
                   Start a Project <ArrowRight size={18} />
                 </a>
                 <a href="#services" className="secondary-btn">
-                  Explore Services
+                  View Services
                 </a>
               </div>
 
               <div className="hero-proof intro intro-7">
-                {["Meta Ads", "Google Ads", "Admission Funnels", "Creative Strategy"].map((item) => (
+                {["Meta Ads", "Google Ads", "Funnel Systems", "Creative Strategy"].map((item) => (
                   <span key={item} className="hero-proof-item">{item}</span>
                 ))}
               </div>
@@ -476,14 +542,34 @@ function HomePage() {
 
             <HeroVisual />
           </div>
+        </section>
 
-          <div className="container-shell stats-rail intro intro-7">
-            {stats.map((item) => (
-              <div key={item.label} className="stat-card">
-                <h3>{item.value}</h3>
-                <p>{item.label}</p>
-              </div>
-            ))}
+        <section className="trust-strip-section">
+          <div className="container-shell">
+            <div className="trust-strip reveal">
+              {trustItems.map((item) => (
+                <span key={item} className="trust-strip-item">{item}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="proof-section standard-section">
+          <div className="container-shell">
+            <SectionTitle
+              eyebrow="Proof"
+              title="Built for measurable growth"
+              copy="Clear numbers, cleaner execution, and systems designed to support performance over noise."
+            />
+
+            <div className="stats-rail">
+              {stats.map((item) => (
+                <div key={item.label} className="stat-card reveal">
+                  <h3>{item.value}</h3>
+                  <p>{item.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -492,7 +578,7 @@ function HomePage() {
             <SectionTitle
               eyebrow="Services"
               title="What we actually build"
-              copy="Campaign systems, ad execution, and conversion journeys designed around better inquiries and stronger admissions growth."
+              copy="From campaign setup to admissions-focused funnels, we build the systems that turn marketing movement into better inquiry quality and stronger conversion."
             />
 
             <div className="services-grid">
@@ -505,13 +591,84 @@ function HomePage() {
                       <Icon size={24} />
                     </div>
 
-                    <div>
+                    <div className="service-content">
                       <h3>{service.title}</h3>
                       <p>{service.desc}</p>
+
+                      <div className="service-list">
+                        {service.includes.map((item) => (
+                          <div key={item} className="service-list-item">
+                            <CheckCircle2 size={16} />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section id="case-studies" className="standard-section">
+          <div className="container-shell">
+            <SectionTitle
+              eyebrow="Case Studies"
+              title="Work built around results"
+              copy="A look at how we think, structure, and improve growth systems for institutes and education-focused brands."
+            />
+
+            <div className="case-grid">
+              {caseStudies.map((study) => (
+                <div key={study.title} className="case-card reveal">
+                  <div className="case-top">
+                    <p className="case-chip">Project Snapshot</p>
+                    <h3>{study.title}</h3>
+                  </div>
+
+                  <div className="case-block">
+                    <span>Challenge</span>
+                    <p>{study.challenge}</p>
+                  </div>
+
+                  <div className="case-block">
+                    <span>What we changed</span>
+                    <p>{study.solution}</p>
+                  </div>
+
+                  <div className="case-block result">
+                    <span>Outcome</span>
+                    <p>{study.result}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="standard-section">
+          <div className="container-shell">
+            <div className="why-shell reveal">
+              <div className="why-grid">
+                <div className="why-copy">
+                  <p className="section-eyebrow">Why Katalyst Rise</p>
+                  <h2>Structured thinking. Cleaner execution.</h2>
+                  <p>
+                    We do not rely on random marketing activity. We build around systems,
+                    measurement, and outcomes that matter.
+                  </p>
+                </div>
+
+                <div className="why-points">
+                  {whyPoints.map((point) => (
+                    <div key={point} className="why-point">
+                      <CheckCircle2 size={18} />
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -521,7 +678,7 @@ function HomePage() {
             <SectionTitle
               eyebrow="Process"
               title="A clear path from attention to admission"
-              copy="No filler. Just a focused operating model that turns marketing movement into measurable growth."
+              copy="No filler. Just a focused operating model that turns marketing into measurable progress."
             />
 
             <div className="process-grid">
@@ -599,10 +756,22 @@ function HomePage() {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                   />
+                  <input
+                    className="form-field"
+                    placeholder="Institute / organization"
+                    value={form.institute}
+                    onChange={(e) => setForm({ ...form, institute: e.target.value })}
+                  />
+                  <input
+                    className="form-field"
+                    placeholder="Service needed"
+                    value={form.service}
+                    onChange={(e) => setForm({ ...form, service: e.target.value })}
+                  />
                   <textarea
                     rows="5"
                     className="form-field"
-                    placeholder="Tell us about your institute or campaign goal"
+                    placeholder="Tell us about your goal"
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                   />
@@ -624,7 +793,7 @@ function HomePage() {
                         </div>
                         <div className="support-copy">
                           <p className="meta-label">Basic knowledge & help</p>
-                          <p className="meta-value">contact@risekatalyst.com</p>
+                          <p className="meta-value email-value">contact@risekatalyst.com</p>
                         </div>
                       </a>
 
@@ -634,7 +803,7 @@ function HomePage() {
                         </div>
                         <div className="support-copy">
                           <p className="meta-label">Partnerships</p>
-                          <p className="meta-value">partnerships@risekatalyst.com</p>
+                          <p className="meta-value email-value">partnerships@risekatalyst.com</p>
                         </div>
                       </a>
                     </div>
