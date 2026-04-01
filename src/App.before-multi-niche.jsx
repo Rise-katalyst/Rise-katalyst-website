@@ -15,55 +15,53 @@ import {
   Menu,
   X,
   Send,
-  Gem,
-  Store,
   School,
+  Building2,
+  BookOpen,
   BriefcaseBusiness,
-  ShoppingBag,
-  LayoutPanelTop,
+  Layers3,
   Phone,
-  Sparkles,
 } from "lucide-react";
 
 const trustItems = [
   "Performance Ads",
-  "Creative Strategy",
-  "Local Business Growth",
-  "Retail Campaigns",
+  "Admissions Growth",
   "Lead Generation",
-  "Conversion Systems",
+  "Conversion Funnels",
+  "Growth Reporting",
+  "Creative Systems",
 ];
 
 const whoWeWorkWith = [
   {
-    icon: Gem,
-    title: "Jewelry Brands",
-    desc: "Campaigns, creatives, and conversion systems for stores that need stronger visibility and sales intent.",
-  },
-  {
-    icon: Store,
-    title: "Retail Stores",
-    desc: "Performance-focused campaigns for shops looking to drive footfall, inquiries, and better local reach.",
-  },
-  {
     icon: School,
-    title: "Institutes & Education Brands",
-    desc: "Growth systems built for admissions, inquiry quality, and sharper campaign execution.",
+    title: "Coaching Institutes",
+    desc: "Lead generation, campaign systems, and funnel refinement for coaching-driven admissions.",
+  },
+  {
+    icon: Building2,
+    title: "Schools & Academies",
+    desc: "Positioning, inquiry capture, and performance campaigns for growth-focused institutions.",
+  },
+  {
+    icon: BookOpen,
+    title: "Colleges & Higher Education",
+    desc: "Structured marketing systems designed for clarity, reach, and admissions intent.",
   },
   {
     icon: BriefcaseBusiness,
-    title: "Service Businesses",
-    desc: "Lead generation and positioning support for businesses that depend on calls, forms, and serious inquiries.",
+    title: "Training Institutes",
+    desc: "Campaign and landing systems built to improve inquiry quality and conversion flow.",
   },
   {
-    icon: ShoppingBag,
-    title: "Product Businesses",
-    desc: "Clearer campaign structure and stronger creative direction for brands that want scalable growth.",
+    icon: Layers3,
+    title: "Education Startups",
+    desc: "Growth support for brands building new education offers, funnels, and acquisition systems.",
   },
   {
-    icon: LayoutPanelTop,
-    title: "Emerging Local Brands",
-    desc: "Structured support for businesses building their first serious marketing and conversion systems.",
+    icon: GraduationCap,
+    title: "Skill-Based Programs",
+    desc: "Sharper messaging and ad systems for courses, certifications, and outcome-driven programs.",
   },
 ];
 
@@ -71,72 +69,72 @@ const services = [
   {
     icon: Megaphone,
     title: "Lead Generation",
-    desc: "We build campaigns that attract stronger-fit prospects instead of low-quality volume.",
-    includes: ["Audience targeting", "Lead quality improvement", "Inquiry flow planning"],
+    desc: "We structure campaigns to attract stronger-fit prospects instead of low-quality volume.",
+    includes: ["Audience targeting", "Inquiry strategy", "Lead quality improvement"],
   },
   {
     icon: BarChart3,
     title: "Performance Ads",
-    desc: "Meta and Google campaigns built for reach, results, and clearer growth control.",
+    desc: "Meta and Google campaigns built for reach, inquiry quality, and scalable performance.",
     includes: ["Campaign setup", "Budget structure", "Weekly optimization"],
   },
   {
-    icon: Sparkles,
-    title: "Creative Strategy",
-    desc: "Sharper hooks, messaging, and visuals designed around performance, not random posting.",
-    includes: ["Offer positioning", "Creative direction", "Message refinement"],
+    icon: GraduationCap,
+    title: "Admission Funnels",
+    desc: "Landing journeys designed to convert attention into inquiries, calls, and admissions.",
+    includes: ["Landing flow planning", "Conversion structure", "Funnel refinement"],
   },
   {
-    icon: LayoutPanelTop,
-    title: "Funnels & Landing Flows",
-    desc: "Landing journeys designed to turn clicks into inquiries, calls, and stronger conversion movement.",
-    includes: ["Landing flow planning", "CTA structure", "Conversion refinement"],
+    icon: Users,
+    title: "Creative Strategy",
+    desc: "Clear hooks, messaging, and visual direction designed for serious campaign performance.",
+    includes: ["Offer positioning", "Creative direction", "Message testing"],
   },
 ];
 
 const caseStudies = [
   {
-    title: "Retail Store Growth Campaign",
-    challenge: "The business needed better visibility and more serious inquiries from the right audience.",
-    solution: "We refined campaign structure, improved creative direction, and aligned the messaging with buyer intent.",
-    result: "Cleaner lead quality and a stronger path from ad attention to action.",
+    title: "Institute Admissions Campaign",
+    challenge: "Lead quality was inconsistent and the campaign structure lacked clarity.",
+    solution: "We rebuilt targeting, simplified the campaign setup, and improved the inquiry path.",
+    result: "Stronger lead quality and a cleaner path from click to inquiry.",
   },
   {
-    title: "Jewelry Brand Promotion System",
-    challenge: "The store needed more premium positioning and stronger ad communication for product visibility.",
-    solution: "We improved campaign clarity, refined visual direction, and tightened the promotional message flow.",
-    result: "A more premium campaign system with stronger audience relevance.",
+    title: "Landing Funnel Optimization",
+    challenge: "Traffic was coming in, but conversion flow was weak and user intent was leaking.",
+    solution: "We restructured the landing experience, improved messaging hierarchy, and tightened CTA flow.",
+    result: "A more focused journey built around admissions intent.",
   },
   {
-    title: "Admissions Funnel Improvement",
-    challenge: "Traffic was reaching the page, but the conversion flow lacked clarity.",
-    solution: "We reworked the landing hierarchy, tightened the CTA structure, and aligned the messaging with user intent.",
-    result: "A cleaner journey from click to inquiry with better conversion focus.",
+    title: "Creative System Refresh",
+    challenge: "Campaign creative lacked clarity and did not match audience intent.",
+    solution: "We refined creative direction, improved messaging hooks, and aligned visuals with performance goals.",
+    result: "More consistent communication and better campaign alignment.",
   },
 ];
 
 const whyPoints = [
-  "Built for real business growth, not empty activity",
-  "Campaigns focused on quality, not just numbers",
-  "Creative and performance aligned in one system",
-  "Clear execution across stores, brands, and service businesses",
+  "Strategy before execution",
+  "Campaigns built for lead quality",
+  "Funnels designed for conversion clarity",
+  "Creative aligned with performance goals",
 ];
 
 const processItems = [
   {
     icon: Rocket,
     title: "Discover",
-    desc: "We understand your business, customer intent, offer strength, and the growth outcome you want first.",
+    desc: "We understand your institute, audience, admissions cycle, and current growth bottlenecks before launch.",
   },
   {
     icon: BarChart3,
     title: "Build",
-    desc: "We shape the campaigns, creative direction, and conversion system around that business goal.",
+    desc: "We shape campaign structure, funnel direction, creative system, and tracking around the outcome you need.",
   },
   {
     icon: CheckCircle2,
     title: "Scale",
-    desc: "We improve performance using real numbers, better quality control, and tighter optimization.",
+    desc: "We improve performance with real numbers, better quality control, and continuous optimization.",
   },
 ];
 
@@ -151,30 +149,30 @@ const team = [
 
 const stats = [
   { value: "25+", label: "Campaigns managed" },
-  { value: "10+", label: "Brands supported" },
+  { value: "10+", label: "Institutes supported" },
   { value: "1.25K+", label: "Leads generated" },
   { value: "24/7", label: "Optimization rhythm" },
 ];
 
 const flowRows = [
-  { from: "Creative", to: "Campaigns", result: "Sharper audience intent" },
-  { from: "Ads", to: "Conversion Flow", result: "Cleaner customer movement" },
-  { from: "Strategy", to: "Growth System", result: "Measured business scale" },
+  { from: "Meta Ads", to: "Lead Capture", result: "Sharper inquiry quality" },
+  { from: "Google Ads", to: "Admissions Funnel", result: "Cleaner conversion path" },
+  { from: "Creative", to: "Growth System", result: "Measured scale" },
 ];
 
 const marqueeWords = [
-  "Retail Growth",
-  "Jewelry Promotions",
   "Performance Ads",
+  "Admissions Growth",
   "Lead Generation",
-  "Creative Systems",
-  "Conversion Flow",
+  "Conversion Funnels",
+  "Creative Strategy",
+  "Tracking Systems",
 ];
 
 const privacySections = [
   {
     title: "Information We Collect",
-    text: "We may collect your name, email address, phone number, business details, and any message submitted through this website.",
+    text: "We may collect your name, email address, phone number, institute details, and any message submitted through this website.",
   },
   {
     title: "How We Use Information",
@@ -204,7 +202,7 @@ const termsSections = [
 const disclaimerSections = [
   {
     title: "No Guaranteed Results",
-    text: "Marketing performance depends on many factors. We do not guarantee a fixed number of leads, sales, admissions, or revenue.",
+    text: "Marketing performance depends on many factors. We do not guarantee a fixed number of leads, admissions, or revenue.",
   },
   {
     title: "Third-Party Platforms",
@@ -247,7 +245,7 @@ function BrandLockup({ footer = false }) {
 
       <div className="brand-copy">
         <span className="brand-name">Katalyst Rise</span>
-        <span className="brand-tag">Growth systems for modern businesses</span>
+        <span className="brand-tag">Growth systems for institutes</span>
       </div>
     </div>
   );
@@ -281,8 +279,8 @@ function HeroVisual() {
 
         <div className="flow-board">
           <div className="flow-board-head">
-            <p>Growth engine</p>
-            <h3>Strategy, creative, campaigns, conversion.</h3>
+            <p>Admissions engine</p>
+            <h3>Campaign flow, tracked clearly</h3>
           </div>
 
           <div className="flow-list">
@@ -362,6 +360,7 @@ function SiteShell({ children }) {
         <div className="bg-grid" />
         <div className="bg-glow glow-a" />
         <div className="bg-glow glow-b" />
+
         <div className="bg-lane lane-a">
           <span className="bg-dot dot-a" />
         </div>
@@ -444,7 +443,8 @@ function SiteShell({ children }) {
           <div>
             <BrandLockup footer />
             <p className="footer-copy">
-              Performance-led campaigns, creative systems, and conversion-focused execution for modern brands and businesses.
+              Lead generation and ad campaigns for institutes with sharper strategy,
+              stronger creative, and admissions-focused execution.
             </p>
           </div>
 
@@ -486,7 +486,7 @@ function HomePage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    business: "",
+    institute: "",
     phone: "",
     service: "",
     budget: "",
@@ -508,7 +508,7 @@ function HomePage() {
         name: form.name,
         email: form.email,
         message: [
-          `Business / Brand: ${form.business || "-"}`,
+          `Institute / Organization: ${form.institute || "-"}`,
           `Phone / WhatsApp: ${form.phone || "-"}`,
           `Service needed: ${form.service || "-"}`,
           `Monthly ad budget: ${form.budget || "-"}`,
@@ -541,7 +541,7 @@ function HomePage() {
       setForm({
         name: "",
         email: "",
-        business: "",
+        institute: "",
         phone: "",
         service: "",
         budget: "",
@@ -561,17 +561,17 @@ function HomePage() {
         <section className="hero-section">
           <div className="container-shell hero-grid">
             <div className="hero-copy-col">
-              <div className="hero-kicker intro intro-1">Performance growth for modern businesses</div>
+              <div className="hero-kicker intro intro-1">Performance growth for institutes</div>
 
               <h1 className="hero-title">
                 <span className="line-wrap"><span className="hero-line intro intro-2">We build campaigns,</span></span>
-                <span className="line-wrap"><span className="hero-line intro intro-3">creative systems,</span></span>
-                <span className="line-wrap"><span className="hero-line accent-text intro intro-4">and conversion flow.</span></span>
+                <span className="line-wrap"><span className="hero-line intro intro-3">funnels, and systems</span></span>
+                <span className="line-wrap"><span className="hero-line accent-text intro intro-4">that drive admissions.</span></span>
               </h1>
 
               <p className="hero-copy intro intro-5">
-                Katalyst Rise helps brands, stores, institutes, and service businesses generate stronger inquiries,
-                sharper positioning, and measurable growth through strategy-led execution.
+                Katalyst Rise helps institutes generate stronger inquiries, improve conversion flow,
+                and scale performance with clear strategy, sharper creative, and measurable execution.
               </p>
 
               <div className="hero-actions intro intro-6">
@@ -584,7 +584,7 @@ function HomePage() {
               </div>
 
               <div className="hero-proof intro intro-7">
-                {["Retail Growth", "Jewelry Promotions", "Lead Generation", "Creative Strategy"].map((item) => (
+                {["Meta Ads", "Google Ads", "Funnel Systems", "Creative Strategy"].map((item) => (
                   <span key={item} className="hero-proof-item">{item}</span>
                 ))}
               </div>
@@ -608,8 +608,8 @@ function HomePage() {
           <div className="container-shell">
             <SectionTitle
               eyebrow="Proof"
-              title="Built for measurable business growth"
-              copy="Clear numbers, cleaner execution, and systems designed to support better leads, stronger positioning, and sharper conversion."
+              title="Built for measurable growth"
+              copy="Clear numbers, cleaner execution, and systems designed to support performance over noise."
             />
 
             <div className="stats-rail">
@@ -627,8 +627,8 @@ function HomePage() {
           <div className="container-shell">
             <SectionTitle
               eyebrow="Who we work with"
-              title="Built for businesses that want clearer growth."
-              copy="We work with brands that need better lead quality, cleaner conversion flow, stronger promotions, and sharper campaign execution."
+              title="Built for institutes that want clearer growth."
+              copy="We work with education-focused brands that need better inquiry quality, cleaner conversion flow, and stronger admissions-focused execution."
             />
 
             <div className="who-grid">
@@ -656,7 +656,7 @@ function HomePage() {
             <SectionTitle
               eyebrow="Services"
               title="What we actually build"
-              copy="From campaign setup to creative direction and conversion systems, we build the movement that helps businesses grow with more clarity."
+              copy="From campaign setup to admissions-focused funnels, we build the systems that turn marketing movement into better inquiry quality and stronger conversion."
             />
 
             <div className="services-grid">
@@ -694,7 +694,7 @@ function HomePage() {
             <SectionTitle
               eyebrow="Case Studies"
               title="Work built around results"
-              copy="A look at how we think, structure, and improve campaigns, creative systems, and growth execution across different business types."
+              copy="A look at how we think, structure, and improve growth systems for institutes and education-focused brands."
             />
 
             <div className="case-grid">
@@ -734,7 +734,7 @@ function HomePage() {
                   <h2>Structured thinking. Cleaner execution.</h2>
                   <p>
                     We do not rely on random marketing activity. We build around systems,
-                    measurement, creative direction, and business outcomes that matter.
+                    measurement, and outcomes that matter.
                   </p>
                 </div>
 
@@ -755,8 +755,8 @@ function HomePage() {
           <div className="container-shell">
             <SectionTitle
               eyebrow="Process"
-              title="A clear path from attention to action"
-              copy="No filler. Just a focused operating model that turns marketing activity into measurable business progress."
+              title="A clear path from attention to admission"
+              copy="No filler. Just a focused operating model that turns marketing into measurable progress."
             />
 
             <div className="process-grid">
@@ -783,7 +783,7 @@ function HomePage() {
             <SectionTitle
               eyebrow="Team"
               title="People behind Katalyst Rise"
-              copy="Meet the people driving strategy, creative execution, and growth systems at Katalyst Rise."
+              copy="Meet the people driving strategy, execution, and growth at Katalyst Rise."
             />
 
             <div className="team-grid">
@@ -808,29 +808,6 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="cta-section">
-          <div className="container-shell">
-            <div className="cta-shell reveal">
-              <div className="cta-copy">
-                <p className="section-eyebrow">Ready to scale</p>
-                <h2>Need campaigns, creative, or growth systems for your business?</h2>
-                <p>
-                  Let’s understand your current challenge and build a growth system around the result you actually need.
-                </p>
-              </div>
-
-              <div className="cta-actions">
-                <a href="#contact" className="primary-btn">
-                  Start a Project <ArrowRight size={18} />
-                </a>
-                <a href="mailto:contact@risekatalyst.com" className="secondary-btn">
-                  Contact Us
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="contact" className="standard-section">
           <div className="container-shell">
             <div className="contact-shell reveal">
@@ -838,7 +815,7 @@ function HomePage() {
                 <SectionTitle
                   eyebrow="Contact"
                   title="Tell us what you need"
-                  copy="Share your business, service requirement, and current goal. We’ll understand the requirement and respond with the right next step."
+                  copy="Share your institute, service requirement, and current goal. We’ll understand the requirement and respond with the right next step."
                   left
                 />
               </div>
@@ -860,9 +837,9 @@ function HomePage() {
                     />
                     <input
                       className="form-field"
-                      placeholder="Business / brand"
-                      value={form.business}
-                      onChange={(e) => setForm({ ...form, business: e.target.value })}
+                      placeholder="Institute / organization"
+                      value={form.institute}
+                      onChange={(e) => setForm({ ...form, institute: e.target.value })}
                     />
                     <input
                       className="form-field"
@@ -879,8 +856,8 @@ function HomePage() {
                       <option value="">Service needed</option>
                       <option value="Lead Generation">Lead Generation</option>
                       <option value="Performance Ads">Performance Ads</option>
+                      <option value="Admission Funnels">Admission Funnels</option>
                       <option value="Creative Strategy">Creative Strategy</option>
-                      <option value="Funnels & Landing Flows">Funnels & Landing Flows</option>
                       <option value="Full Growth System">Full Growth System</option>
                       <option value="Not sure yet">Not sure yet</option>
                     </select>
@@ -960,7 +937,7 @@ function HomePage() {
                       </div>
                       <div>
                         <p className="meta-label">Response focus</p>
-                        <p className="meta-value">Campaigns, creatives, funnels, and business growth execution</p>
+                        <p className="meta-value">Growth systems, ads, funnels, execution</p>
                       </div>
                     </div>
 
@@ -980,7 +957,7 @@ function HomePage() {
                       </div>
                       <div>
                         <p className="meta-label">Support style</p>
-                        <p className="meta-value">Clear, premium, direct, and growth-focused</p>
+                        <p className="meta-value">Clear, direct, and admissions-focused</p>
                       </div>
                     </div>
                   </div>
